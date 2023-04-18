@@ -61,6 +61,42 @@ function check() {
     });
 
 };
+function check2() {
+    [].forEach.call(document.querySelectorAll('.tel-2'), function (input) {
+        var keyCode;
+        function mask(event) {
+            event.keyCode && (keyCode = event.keyCode);
+            var pos = this.selectionStart;
+            if (pos < 3) event.preventDefault();
+            var matrix = "+7 (___) ___ __ __",
+                i = 0,
+                def = matrix.replace(/\D/g, ""),
+                val = this.value.replace(/\D/g, ""),
+                new_value = matrix.replace(/[_\d]/g, function (a) {
+                    return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+                });
+            i = new_value.indexOf("_");
+            if (i != -1) {
+                i < 5 && (i = 3);
+                new_value = new_value.slice(0, i)
+            }
+            var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                function (a) {
+                    return "\\d{1," + a.length + "}"
+                }).replace(/[+()]/g, "\\$&");
+            reg = new RegExp("^" + reg + "$");
+            if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+            if (event.type == "blur" && this.value.length < 5) this.value = ""
+        }
+
+        input.addEventListener("input", mask, false);
+        input.addEventListener("focus", mask, false);
+        input.addEventListener("blur", mask, false);
+        input.addEventListener("keydown", mask, false)
+
+    });
+
+};
 
 $(`.header__burger`).click(function () {
     $(this).toggleClass(`_active`);
@@ -185,10 +221,6 @@ function releteClick() {
     $(`.next__button`).off(`click`, submitAdd);
 };
 
-
-
-
-
 $(`.design`).on(`click`, function (e) {
     if (!e.target.closest(`.design__item`)) {
         return false;
@@ -215,6 +247,88 @@ $(`.design`).on(`click`, function (e) {
 
 
 });
+
+
+const animItems = document.querySelectorAll(`._anim-item`);
+
+if(animItems.length > 0){
+    animScroll();
+
+   window.addEventListener('scroll',animScroll); 
+}
+function animScroll(){
+    for (let i = 0; i < animItems.length; i++) {
+        const animItem = animItems[i];
+        const animItemHeight = animItem.offsetHeight;
+        const animStart = 4;
+        const animOffset = offsetAnim(animItem).top; 
+        var animPoint = window.innerHeight - (animItemHeight/animStart);
+
+        if(animItemHeight > window.innerHeight){
+          var  animPoint = window.innerHeight - (window.innerHeight / animStart);
+        }
+
+        if((pageYOffset > animOffset-animPoint) && pageYOffset < (animOffset + animItemHeight)){
+        animItem.classList.add(`_active`);
+        }
+        else{
+            if(!animItem.classList.contains(`_anim-no-hide`)){
+                animItem.classList.remove(`_active`);
+
+            }
+        }
+    }
+}
+function offsetAnim(elem){
+    const rect = elem.getBoundingClientRect();
+const scrollY = window.pageYOffset||document.documentElement.scrollTop;
+const scrollX = window.pageXOffset||document.documentElement.scrollLeft;
+return{top:scrollY + rect.top,left:scrollX+rect.left}
+}
+
+
+check2();
+$(`.tel-2`).on(`input`, function () {
+    if ($(this).val().length >= 18) {
+
+        $(this).removeClass(`red-shadow`);
+        checkedTel = true;
+        $(this).addClass(`green-shadow`);
+    }
+    else {
+        checkedTel = false;
+        $(this).removeClass(`green-shadow`);
+        $(this).addClass(`red-shadow`);
+    }
+});
+
+let checkedName = false;
+let checkedTel = false;
+
+$(`.smoke__form_item-name input`).on(`input`, function () {
+    if ($(this).val().length > 0) {
+
+        $(this).removeClass(`red-shadow`);
+        checkedName = true;
+        $(this).addClass(`green-shadow`);
+    }
+    else {
+        checkedName = false;
+        $(this).removeClass(`green-shadow`);
+        $(this).addClass(`red-shadow`);
+    }
+});
+$(`.smoke__form_item-button .button`).on(`click`,function(){
+
+if(checkedName===true&&checkedTel===true){
+   document.querySelector(`.smoke__form`).submit(); 
+}
+    
+return false;
+
+});
+
+
 
 
 
