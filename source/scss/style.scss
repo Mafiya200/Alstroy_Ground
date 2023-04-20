@@ -2420,7 +2420,7 @@ form {
 /////block4
 
 .advantages-10 {
-    @include adapt-value('padding-bottom', 100, 30, 0);
+    @include adapt-value('margin-bottom', 100, 30, 0);
 }
 
 .advantages-10__container {}
@@ -2590,9 +2590,9 @@ form {
     transform     : translate(0, 0);
     font-weight   : 800;
     letter-spacing: 0.7px;
-    @include adapt-value('padding-left', 40.25, 30, 0);
-    @include adapt-value('padding-right', 40.25, 30, 0);
-    @include adapt-value('font-size', 12, 12, 0);
+    @include adapt-value('padding-left', 40.25, 25, 0);
+    @include adapt-value('padding-right', 40.25, 25, 0);
+    @include adapt-value('font-size', 12, 11, 0);
 
     line-height: 342%;
 }
@@ -3452,7 +3452,7 @@ form {
 
     color: #000000;
 
-    @include adapt-value('padding-left', 18, 10, 0);
+    @include adapt-value('padding-left', 18, 18, 0);
     position: relative;
 }
 
@@ -3483,11 +3483,11 @@ form {
     transform: translate(0, -50%);
     position : absolute;
 
-    @include adapt-value('width', 10, 6, 0);
-    @include adapt-value('height', 10, 6, 0);
+    @include adapt-value('width', 10, 10, 0);
+    @include adapt-value('height', 10, 10, 0);
 
     border-radius: 50%;
-    @include adapt-value('border-width', 3, 2, 0);
+    @include adapt-value('border-width', 3, 3, 0);
 
     border-color: #3FAC3B;
     border-style: solid;
@@ -3615,14 +3615,17 @@ line-height: 220.51%;
     border-radius: 0;
 }
 .plit._anim-item .plit__image{
-    transition: opacity 0.8s;
+    opacity: 0;
+    transition: opacity 0.8s 0.1s;
 }
 .plit._active .plit__image{
+    opacity: 1;
+
     }
 .plit._anim-item .plit__text{
     transform: translate3d(-100%,0,0);
 
-  transition: transform 2.0s;
+  transition: transform 0.8s 0.3s;
 }
 .plit._active .plit__text{
     transform: translate3d(0,0,0);
@@ -3631,7 +3634,7 @@ line-height: 220.51%;
 
 .plit._anim-item .plit__buttons{
     transform: translate3d(100%,0,0);
-    transition: transform 1.3s;
+    transition: transform 0.8s 0.3s;
 }
 .plit._active .plit__buttons{
     transform: translate3d(0,0,0);
