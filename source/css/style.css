@@ -3159,7 +3159,7 @@ form {
           transform: translate(0, 0);
 }
 
-block__images .footer {
+.footer {
   padding: 10px 0;
   background-color: #555555;
 }

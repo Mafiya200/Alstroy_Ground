@@ -3637,14 +3637,12 @@ opacity: 1;
 .plit._active .plit__buttons{
     transform: translate(0,0);
 }
-block__images
 
 
 //////////////////////footer////////////////////////////////////////////////////////
 .footer {
     padding         : 10px 0;
     background-color: #555555;
-
 }
 
 @media (max-width:768px) {
@@ -3656,6 +3654,7 @@ block__images
 
 .footer__container {
     padding: 0 10px;
+
 }
 
 .footer__body {
