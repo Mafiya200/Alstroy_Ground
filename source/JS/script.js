@@ -331,6 +331,37 @@ return false;
 
 
 
+$(`.block__mini-images .mini-image`).on(`click`,function(){
+
+$(this).parent().parent().children(`.block__big-image`);
+
+
+if($(this).parent().parent().children(`.block__big`).length){
+
+const cloneBig = $(this).parent().parent().children(`.block__big`).children(`.block__big-image`).children(`img`).clone();
+const cloneMini = $(this).children(`img`).clone();
+$(this).parent().parent().children(`.block__big`).children(`.block__big-image`).children(`img`).replaceWith(cloneMini);
+$(this).children(`img`).replaceWith(cloneBig);
+console.log(1);
+
+}
+
+});
+
+
+$(`.start-logo`).on(`click`,function(e){
+
+        window.scrollTo({
+            top:0,
+            left:0,
+            behavior:`smooth`,
+        });
+
+e.preventDefault();
+});
+
+
+
 
 
 
