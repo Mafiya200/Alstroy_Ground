@@ -2695,6 +2695,7 @@ form {
   cursor: pointer;
   background-color: #fff;
   position: relative;
+  overflow: hidden;
 }
 
 .plit:hover {
@@ -3099,6 +3100,10 @@ form {
     grid-template-columns: 1fr 1fr;
   }
 }
+.load-foundation__title {
+  margin-bottom: calc(15px + 127 * ((100vw - 280px) / (1920 - 280)));
+}
+
 .load-foundation .plit .plit__text {
   padding-left: calc(5px + 0 * ((100vw - 280px) / (1920 - 280)));
   padding-right: calc(5px + 0 * ((100vw - 280px) / (1920 - 280)));
@@ -3120,43 +3125,36 @@ form {
 }
 
 .plit._anim-item .plit__image {
-  opacity: 0;
   -webkit-transition: opacity 0.8s;
   transition: opacity 0.8s;
 }
 
 .plit._anim-item .plit__text {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  position: relative;
-  -webkit-transition: -webkit-transform 1.3s;
-  transition: -webkit-transform 1.3s;
-  transition: transform 1.3s;
-  transition: transform 1.3s, -webkit-transform 1.3s;
-}
-
-.plit._anim-item .plit__buttons {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  position: relative;
-  -webkit-transition: -webkit-transform 1.3s;
-  transition: -webkit-transform 1.3s;
-  transition: transform 1.3s;
-  transition: transform 1.3s, -webkit-transform 1.3s;
-}
-
-.plit._active .plit__image {
-  opacity: 1;
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
 }
 
 .plit._active .plit__text {
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.plit._anim-item .plit__buttons {
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+  -webkit-transition: -webkit-transform 1.3s;
+  transition: -webkit-transform 1.3s;
+  transition: transform 1.3s;
+  transition: transform 1.3s, -webkit-transform 1.3s;
 }
 
 .plit._active .plit__buttons {
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 .footer {

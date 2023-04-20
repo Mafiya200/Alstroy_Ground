@@ -3096,6 +3096,7 @@ form {
     cursor          : pointer;
     background-color: #fff;
     position        : relative;
+    overflow: hidden;
 
 }
 
@@ -3589,6 +3590,10 @@ object-fit: cover;
     }
  
 }
+.load-foundation__title{
+    @include adapt-value('margin-bottom', 142, 15, 0);
+
+}
 .load-foundation .plit .plit__text{
    
     @include adapt-value('padding-left', 5, 5, 0);
@@ -3610,32 +3615,26 @@ line-height: 220.51%;
     border-radius: 0;
 }
 .plit._anim-item .plit__image{
-    opacity: 0;
     transition: opacity 0.8s;
 }
+.plit._active .plit__image{
+    }
 .plit._anim-item .plit__text{
-    transform: translateX(-100%);
-    position: relative;
+    transform: translate3d(-100%,0,0);
 
-  transition: transform 1.3s;
+  transition: transform 2.0s;
+}
+.plit._active .plit__text{
+    transform: translate3d(0,0,0);
+
 }
 
 .plit._anim-item .plit__buttons{
-    transform: translateX(100%);
-position: relative;
+    transform: translate3d(100%,0,0);
     transition: transform 1.3s;
 }
-
-.plit._active .plit__image{
-opacity: 1;
-}
-.plit._active .plit__text{
-    transform: translate(0,0);
-
-}
-
 .plit._active .plit__buttons{
-    transform: translate(0,0);
+    transform: translate3d(0,0,0);
 }
 
 
