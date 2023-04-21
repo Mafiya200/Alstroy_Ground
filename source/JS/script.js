@@ -169,28 +169,30 @@ $(`.next__button`).on(`click`, submitAdd);
 function submitAdd() {
     mySwiperQuestion.slideNext();
     let mySwiperQuestionLength = mySwiperQuestion.slides.length;
-    console.log(`${mySwiperQuestion.realIndex}`);
-    console.log(`${mySwiperQuestionLength - 1}`);
+
     if (mySwiperQuestion.realIndex === mySwiperQuestionLength - 1) {
         $(this).parent().find(`.next__text`).replaceWith(`<input class="tel" type="tel" required name="telUser" placeholder="Ваш телефон">`);
         check();
         $(this).attr('type', `submit`);
         $(this).find(`span`).text(`Отправить`);
-
-
+$(this).addClass(`_unready`);
+const submitSlide = $(this);
         $(`.tel`).on(`input`, function () {
 
-            console.log($(`.tel`).val().length);
             if ($(`.tel`).val().length >= 18) {
                 $(`.tel`).removeClass(`red-shadow`);
 
                 $(`.tel`).addClass(`green-shadow`);
                 releteClick();
+                submitSlide.removeClass(`_unready`);
+
             }
             else {
                 $(`.tel`).removeClass(`green-shadow`);
                 $(`.next__button`).on(`click`, submitAdd);
                 $(`.tel`).addClass(`red-shadow`);
+                submitSlide.addClass(`_unready`);
+
             }
         });
 
@@ -317,7 +319,27 @@ $(`.smoke__form_item-name input`).on(`input`, function () {
         $(this).removeClass(`green-shadow`);
         $(this).addClass(`red-shadow`);
     }
+    if(checkedName===true&&checkedTel===true){
+        $(`.smoke__form_item-button .button`).removeClass(`_unready`); 
+
+    }
+    else{
+        $(`.smoke__form_item-button .button`).addClass(`_unready`);
+    }
+
 });
+$(`.smoke__form_item-tel input`).on(`input`, function () {
+    if(checkedName===true&&checkedTel===true){
+        $(`.smoke__form_item-button .button`).removeClass(`_unready`); 
+
+    }
+    else{
+        $(`.smoke__form_item-button .button`).addClass(`_unready`);
+    } 
+});
+
+
+
 $(`.smoke__form_item-button .button`).on(`click`,function(){
 
 if(checkedName===true&&checkedTel===true){
@@ -342,7 +364,6 @@ const cloneBig = $(this).parent().parent().children(`.block__big`).children(`.bl
 const cloneMini = $(this).children(`img`).clone();
 $(this).parent().parent().children(`.block__big`).children(`.block__big-image`).children(`img`).replaceWith(cloneMini);
 $(this).children(`img`).replaceWith(cloneBig);
-console.log(1);
 
 }
 

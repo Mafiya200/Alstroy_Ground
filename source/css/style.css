@@ -379,6 +379,10 @@ html {
   font-family: "Inter";
 }
 
+.button._unready {
+  background-color: #555555;
+}
+
 .button:active {
   background-color: #308D2C;
   -webkit-box-shadow: 0 0px 0 0 #009f40;
@@ -390,6 +394,17 @@ html {
 .button_shadow {
   -webkit-box-shadow: 0 5px 0 0 #009f40;
           box-shadow: 0 5px 0 0 #009f40;
+}
+
+.button_shadow._unready {
+  -webkit-box-shadow: 0 5px 0 0 #282828;
+          box-shadow: 0 5px 0 0 #282828;
+}
+
+.button._unready:active {
+  background-color: #282828;
+  -webkit-box-shadow: 0 0px 0 0 #282828;
+          box-shadow: 0 0px 0 0 #282828;
 }
 
 .header::before {
@@ -2624,8 +2639,6 @@ form {
   color: #FFFFFF;
   padding-left: calc(15px + 44 * ((100vw - 280px) / (1920 - 280)));
   padding-right: calc(15px + 44 * ((100vw - 280px) / (1920 - 280)));
-  -webkit-transform: translate(0);
-          transform: translate(0);
 }
 
 .smoke__form_item {
@@ -2647,6 +2660,11 @@ form {
   .smoke__form_item-tel {
     -ms-grid-column-align: start;
         justify-self: start;
+  }
+}
+@media (max-width: 374px) {
+  .smoke__form_item-tel {
+    margin-bottom: calc(20px + 5 * ((100vw - 280px) / (1920 - 280)));
   }
 }
 @media (min-width: 375px) and (max-width: 600px) {

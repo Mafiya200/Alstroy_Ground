@@ -399,6 +399,10 @@ opacity: 1;
     transition : 0.3s;
     font-family: 'Inter';
 }
+.button._unready{
+
+    background-color: #555555;
+}
 
 
 .button:active {
@@ -411,7 +415,14 @@ opacity: 1;
 .button_shadow {
     box-shadow: 0 5px 0 0 #009f40;
 }
+.button_shadow._unready {
+    box-shadow: 0 5px 0 0 #282828;
+}
+.button._unready:active {
+    background-color: #282828;
+    box-shadow      : 0 0px 0 0 #282828;
 
+}
 .header::before {
     content         : "";
     position        : absolute;
@@ -2883,7 +2894,6 @@ form {
     line-height: calc(30/25);
     @include adapt-value('margin-bottom', 8, 6, 0);
 
-
     color: #282828;
 }
 
@@ -2959,7 +2969,6 @@ form {
 
 .smoke__form_item input {
     font-family: 'Inter';
-
     @include adapt-value('border-radius', 50, 50, 0);
     line-height     : 300%;
     background-color: #fff;
@@ -3008,7 +3017,6 @@ form {
     color: #FFFFFF;
     @include adapt-value('padding-left', 59, 15, 0);
     @include adapt-value('padding-right', 59, 15, 0);
-    transform: translate(0);
 }
 
 .smoke__form_item {
@@ -3040,7 +3048,13 @@ form {
     }
 
 }
+@media (max-width:374px) {
+    .smoke__form_item-tel { 
 
+        @include adapt-value('margin-bottom', 25, 20, 0);
+
+    }
+}
 @media (min-width:375px)and(max-width:600px) {
     .smoke__form_item-button {
         grid-column: span 2;
