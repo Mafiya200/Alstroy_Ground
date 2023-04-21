@@ -2101,7 +2101,7 @@ form {
 
 .button-card {
     @include adapt-value('padding-top', 10, 10, 0);
-
+cursor: pointer;
 }
 
 @media (max-width:1600px) {
@@ -3015,10 +3015,16 @@ form {
     @include adapt-value('font-size', 18, 11, 0);
 
     color: #FFFFFF;
-    @include adapt-value('padding-left', 59, 15, 0);
-    @include adapt-value('padding-right', 59, 15, 0);
+    @include adapt-value('padding-left', 59, 10, 0);
+    @include adapt-value('padding-right', 59, 10, 0);
 }
-
+@media (max-width:600px)  {
+    .smoke__form_item .button {
+        @include adapt-value('padding-left', 59, 15, 0);
+        @include adapt-value('padding-right', 59, 15, 0);
+    }   
+    
+}
 .smoke__form_item {
     display: block;
 }
@@ -3202,12 +3208,16 @@ form {
 
 .it-easy__container {}
 
-.it-easy__body {}
+.it-easy__body {
+
+}
 
 @media (min-width:576px) {
     .it-easy__body {
         @include adapt-value('min-height', 942, 400, 0);
         position: relative;
+        z-index: 2;
+
     }
 }
 
@@ -3221,6 +3231,8 @@ form {
         top     : 0;
         left    : 0;
         position: absolute;
+        z-index: -1;
+
     }
 
     .it-easy__body::before {
@@ -3366,6 +3378,7 @@ form {
         grid-template-columns: 1fr 1fr 1fr;
         @include adapt-value('min-height', 1096, 500, 0);
         position: relative;
+        z-index: 2;
     }
 }
 @media (min-width:576px) {
@@ -3376,6 +3389,8 @@ form {
         top     : 0;
         left    : 0;
         position: absolute;
+        z-index:-1;
+
             background: url('../../img/elements/element-2.png') 0% 100%/27% no-repeat;
         }
     
