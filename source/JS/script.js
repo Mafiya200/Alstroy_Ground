@@ -97,6 +97,78 @@ function check2() {
     });
 
 };
+function check3() {
+    [].forEach.call(document.querySelectorAll('.tel-3'), function (input) {
+        var keyCode;
+        function mask(event) {
+            event.keyCode && (keyCode = event.keyCode);
+            var pos = this.selectionStart;
+            if (pos < 3) event.preventDefault();
+            var matrix = "+7 (___) ___ __ __",
+                i = 0,
+                def = matrix.replace(/\D/g, ""),
+                val = this.value.replace(/\D/g, ""),
+                new_value = matrix.replace(/[_\d]/g, function (a) {
+                    return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+                });
+            i = new_value.indexOf("_");
+            if (i != -1) {
+                i < 5 && (i = 3);
+                new_value = new_value.slice(0, i)
+            }
+            var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                function (a) {
+                    return "\\d{1," + a.length + "}"
+                }).replace(/[+()]/g, "\\$&");
+            reg = new RegExp("^" + reg + "$");
+            if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+            if (event.type == "blur" && this.value.length < 5) this.value = ""
+        }
+
+        input.addEventListener("input", mask, false);
+        input.addEventListener("focus", mask, false);
+        input.addEventListener("blur", mask, false);
+        input.addEventListener("keydown", mask, false)
+
+    });
+
+};
+function check4() {
+    [].forEach.call(document.querySelectorAll('.tel-4'), function (input) {
+        var keyCode;
+        function mask(event) {
+            event.keyCode && (keyCode = event.keyCode);
+            var pos = this.selectionStart;
+            if (pos < 3) event.preventDefault();
+            var matrix = "+7 (___) ___ __ __",
+                i = 0,
+                def = matrix.replace(/\D/g, ""),
+                val = this.value.replace(/\D/g, ""),
+                new_value = matrix.replace(/[_\d]/g, function (a) {
+                    return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+                });
+            i = new_value.indexOf("_");
+            if (i != -1) {
+                i < 5 && (i = 3);
+                new_value = new_value.slice(0, i)
+            }
+            var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                function (a) {
+                    return "\\d{1," + a.length + "}"
+                }).replace(/[+()]/g, "\\$&");
+            reg = new RegExp("^" + reg + "$");
+            if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+            if (event.type == "blur" && this.value.length < 5) this.value = ""
+        }
+
+        input.addEventListener("input", mask, false);
+        input.addEventListener("focus", mask, false);
+        input.addEventListener("blur", mask, false);
+        input.addEventListener("keydown", mask, false)
+
+    });
+
+};
 
 $(`.header__burger`).click(function () {
     $(this).toggleClass(`_active`);
@@ -290,6 +362,10 @@ return{top:scrollY + rect.top,left:scrollX+rect.left}
 
 
 check2();
+check3();
+check4();
+
+
 $(`.tel-2`).on(`input`, function () {
     if ($(this).val().length >= 18) {
 
@@ -303,10 +379,37 @@ $(`.tel-2`).on(`input`, function () {
         $(this).addClass(`red-shadow`);
     }
 });
+$(`.tel-3`).on(`input`, function () {
+    if ($(this).val().length >= 18) {
 
+        $(this).removeClass(`red-shadow`);
+        checkedTel3 = true;
+        $(this).addClass(`green-shadow`);
+
+    }
+    else {
+        checkedTel3 = false;
+        $(this).removeClass(`green-shadow`);
+        $(this).addClass(`red-shadow`);
+    }
+});
+$(`.tel-4`).on(`input`, function () {
+    if ($(this).val().length >= 18) {
+
+        $(this).removeClass(`red-shadow`);
+        checkedTel4 = true;
+        $(this).addClass(`green-shadow`);
+    }
+    else {
+        checkedTel4 = false;
+        $(this).removeClass(`green-shadow`);
+        $(this).addClass(`red-shadow`);
+    }
+});
 let checkedName = false;
 let checkedTel = false;
-
+let checkedTel3 = false;
+let checkedTel4 = false;
 $(`.smoke__form_item-name input`).on(`input`, function () {
     if ($(this).val().length > 0) {
 
@@ -337,13 +440,30 @@ $(`.smoke__form_item-tel input`).on(`input`, function () {
         $(`.smoke__form_item-button .button`).addClass(`_unready`);
     } 
 });
-
-
-
 $(`.smoke__form_item-button .button`).on(`click`,function(){
 
-if(checkedName===true&&checkedTel===true){
-   document.querySelector(`.smoke__form`).submit(); 
+    if(checkedName===true&&checkedTel===true){
+       document.querySelector(`.smoke__form`).submit(); 
+    }
+        
+    return false;
+    
+    });
+/////3
+
+$(`.leave-reguest__form_item-tel input`).on(`input`, function () {
+    if(checkedTel3){
+        $(`.leave-reguest__form_item-button .button`).removeClass(`_unready`); 
+
+    }
+    else{
+        $(`.leave-reguest__form_item-button .button`).addClass(`_unready`);
+    } 
+});
+$(`.leave-reguest__form_item-button .button`).on(`click`,function(){
+
+if(checkedTel3){
+   document.querySelector(`.leave-reguest__form`).submit(); 
 }
     
 return false;
@@ -351,7 +471,25 @@ return false;
 });
 
 
+/////4
+/* $(`.leave-reguest__form_item-tel input`).on(`input`, function () {
+    if(checkedTel4){
+        $(`.leave-reguest__form_item-button .button`).removeClass(`_unready`); 
 
+    }
+    else{
+        $(`.leave-reguest__form_item-button .button`).addClass(`_unready`);
+    } 
+});
+$(`.leave-reguest__form_item-button .button`).on(`click`,function(){
+
+if(checkedTel4){
+   document.querySelector(`.leave-reguest__form`).submit(); 
+}
+    
+return false;
+
+});
 
 $(`.block__mini-images .mini-image`).on(`click`,function(){
 
@@ -367,7 +505,7 @@ $(this).children(`img`).replaceWith(cloneBig);
 
 }
 
-});
+}); */
 
 
 $(`.start-logo`).on(`click`,function(e){
