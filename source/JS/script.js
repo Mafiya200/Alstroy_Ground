@@ -519,6 +519,11 @@ $(`.start-logo`).on(`click`,function(e){
 e.preventDefault();
 });
 
+$(`.tel-3`).on(`blur`,function(){
+    $(this).removeClass(`red-shadow`);
+    console.log(1);
+})
+    
 
 
 
