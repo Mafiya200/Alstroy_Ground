@@ -384,6 +384,7 @@ html {
     display         : flex;
     flex-direction  : column;
     justify-content : space-between;
+    overflow: hidden;
 }
 
 .header {
@@ -586,12 +587,14 @@ html {
 }
 
 .navigation__gps img {
+    width: 100%;
+    height: 100%;
     position : absolute;
     top      : 50%;
     left     : 50%;
-    width    : 60%;
-    height   : 60%;
     transform: translate(-50%, -50%);
+    fill: red;
+
 }
 
 .navigation__block {}
@@ -4192,13 +4195,14 @@ object-fit: cover;
     @include adapt-value("padding-left",61.5,5,0);
     @include adapt-value("padding-right",61.5,5,0);
     @include adapt-value("padding-bottom",106.5,15,0);
+    overflow: hidden;
 
 background:url('../../img/elements/smoke2.png') 0 0/cover no-repeat;
 @include adapt-value("border-radius",20,10,0);
 overflow: hidden;
 }
 .leave-reguest__content {
-    
+
 }
 @media (min-width:576px) {
     .leave-reguest__content {
@@ -4370,8 +4374,9 @@ align-self: center;
     display: flex;
     flex-direction: column;
     align-items: start;
-    overflow: hidden;
+
 }
+
 @media (max-width:575px) {
     .leave-reguest__form{
         text-align: center;
@@ -4386,7 +4391,7 @@ align-self: center;
 .leave-reguest__form_item-tel._anim-item {
     @include adapt-value("margin-bottom",25.0,20,0);
    transition: 0.65s 0.1s;
-   transform: translate(-100%,0);
+   transform: translate(-155%,0);
     
 }
 .leave-reguest__form_item-tel._anim-item._active {
@@ -4510,8 +4515,6 @@ line-height: 119.52%;
 .address__form {
     height: auto;
     text-align: center;
-    overflow: hidden;
-
 }
 @media (max-width:768px) {
     .address__form {
@@ -4530,6 +4533,8 @@ line-height: 119.52%;
 
 
 .address__item.minut-15{
+    overflow: hidden;
+
     @include adapt-value("padding-top",76,0,0);
     @include adapt-value("border-radius",20,10,0);
 background-color: #fff;
@@ -4550,7 +4555,7 @@ background-color: #fff;
 .address__form_item-tel {
     display: inline-block;
     @include adapt-value("margin-bottom",32,20,0);
-   
+
 }
 .tel-4 {
     @include adapt-value("min-width",332,180,0);
@@ -4958,3 +4963,114 @@ left: 0;
 }
 
 .footer__background {}
+
+
+
+
+
+
+///////////////////////////////
+
+.big-popup {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.6s;
+
+}
+.big-popup._active{
+    visibility: visible;
+    opacity: 1;
+    background-color: hsla(0, 0%, 0%, 0.5);
+  
+}
+
+.popup {
+        @include adapt-value('padding-top', 112, 60, 0);
+        @include adapt-value('padding-bottom', 112, 60, 0);
+overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+height: 100vh;
+transition: 0.8s;
+transform: perspective(600px) translateY(-100vh) rotateX(90deg);
+opacity: 0;
+}
+@media (min-width:2600px) {
+    .popup {
+        transform: perspective(600px) translateY(-175vh) rotateX(90deg);
+ 
+    }
+
+}
+.popup{
+
+}
+.popup._active{
+    opacity: 1;
+    transform: perspective(600px) translateY(0vh) rotateX(0deg);
+}
+.popup__body {
+    max-width: 80%;
+    margin: 0 auto;
+
+    position: relative;
+}
+@media (max-width:575px) {
+    .popup__body {
+        max-width: 95%;
+
+    }  
+}
+.popup__content {
+    @include adapt-value('padding', 50, 30, 0);
+
+    background-color: white;
+}
+.popup__content p {
+
+
+font-weight: 500;
+@include adapt-value('font-size', 22, 15, 0);
+
+line-height: calc(20/15);
+
+color: #282828;
+  
+}
+.popup__close {
+    position: absolute;
+@include adapt-value('width', 40, 25, 0);
+@include adapt-value('height', 40, 25, 0);
+@include adapt-value('top', 15, 10, 0);
+@include adapt-value('right', 15, 10, 0);
+  
+}
+.popup__close::before,.popup__close::after{
+    content: '';
+position: absolute;
+background-color: #3FAC3B;
+height: 4px;
+width: 100%;
+}
+.popup__close::before{
+   top: 50%; 
+   left: 50%;
+   transform: translate(-50%,-50%) rotate(45deg);
+
+}
+.popup__close::after{
+bottom: 50%;
+left: 50%;
+
+transform: translate(-50%,50%) rotate(-45deg);
+
+}
