@@ -472,24 +472,44 @@ return false;
 
 
 /////4
-/* $(`.leave-reguest__form_item-tel input`).on(`input`, function () {
+$(`.address__form_item-tel input`).on(`input`, function () {
     if(checkedTel4){
-        $(`.leave-reguest__form_item-button .button`).removeClass(`_unready`); 
+        $(`.address__form_item-button .button`).removeClass(`_unready`); 
 
     }
     else{
-        $(`.leave-reguest__form_item-button .button`).addClass(`_unready`);
+        $(`.address__form_item-button .button`).addClass(`_unready`);
     } 
 });
-$(`.leave-reguest__form_item-button .button`).on(`click`,function(){
+$(`.address__form_item-button .button`).on(`click`,function(){
 
 if(checkedTel4){
-   document.querySelector(`.leave-reguest__form`).submit(); 
+   document.querySelector(`.address__form`).submit(); 
 }
     
 return false;
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $(`.block__mini-images .mini-image`).on(`click`,function(){
 
@@ -505,7 +525,7 @@ $(this).children(`img`).replaceWith(cloneBig);
 
 }
 
-}); */
+});
 
 
 $(`.start-logo`).on(`click`,function(e){
