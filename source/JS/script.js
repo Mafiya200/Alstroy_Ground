@@ -597,7 +597,7 @@ function paddingRightadd(){
         const elementPaddingRight = paddingRight[i];
 
         elementPaddingRight.style = `padding-right:${scrollWidth}px`;
-
+console.log(scrollWidth);
         
     }
     }
