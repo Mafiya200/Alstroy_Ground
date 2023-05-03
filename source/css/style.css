@@ -106,6 +106,10 @@ html {
   padding-bottom: calc(50px + 165 * ((100vw - 280px) / (1920 - 280)));
 }
 
+.block__content {
+  overflow: hidden;
+}
+
 @media (min-width: 576px) {
   .block__content {
     display: -webkit-box;
@@ -3878,8 +3882,8 @@ form {
   margin-bottom: calc(20px + 5 * ((100vw - 280px) / (1920 - 280)));
   -webkit-transition: 0.65s 0.1s;
   transition: 0.65s 0.1s;
-  -webkit-transform: translate(-155%, 0);
-          transform: translate(-155%, 0);
+  -webkit-transform: translate(-175%, 0);
+          transform: translate(-175%, 0);
 }
 
 .leave-reguest__form_item-tel._anim-item._active {
@@ -3900,8 +3904,8 @@ form {
 .leave-reguest__form_item.leave-reguest__form_item-button._anim-item {
   -webkit-transition: 0.65s 0.55s;
   transition: 0.65s 0.55s;
-  -webkit-transform: translate(-155%, 0);
-          transform: translate(-155%, 0);
+  -webkit-transform: translate(-175%, 0);
+          transform: translate(-175%, 0);
 }
 
 .leave-reguest__form_item.leave-reguest__form_item-button._anim-item._active {

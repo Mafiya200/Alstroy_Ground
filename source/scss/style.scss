@@ -95,7 +95,10 @@ html {
 
 .block__body {}
 
-.block__content {}
+.block__content {
+    overflow: hidden;
+
+}
 
 @media (min-width:576px) {
     .block__content {
@@ -4229,6 +4232,7 @@ overflow: hidden;
 }
 .leave-reguest__block-text {
     @include adapt-value("padding-top",16.5,0,0);
+    
   
 }
 .leave-reguest__title {
@@ -4406,7 +4410,7 @@ align-self: center;
 .leave-reguest__form_item-tel._anim-item {
     @include adapt-value("margin-bottom",25.0,20,0);
    transition: 0.65s 0.1s;
-   transform: translate(-155%,0);
+   transform: translate(-175%,0);
     
 }
 .leave-reguest__form_item-tel._anim-item._active {
@@ -4426,7 +4430,7 @@ align-self: center;
 }
 .leave-reguest__form_item.leave-reguest__form_item-button._anim-item{
     transition: 0.65s 0.55s;
-    transform: translate(-155%,0); 
+    transform: translate(-175%,0); 
 }
 .leave-reguest__form_item.leave-reguest__form_item-button._anim-item._active {
     transform: translate(0%,0); 
