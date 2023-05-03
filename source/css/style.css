@@ -82,6 +82,7 @@ body {
   height: 100%;
   background-color: #333;
   min-width: 280px;
+  overflow-x: hidden;
   font-family: "TT Norms", "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -337,6 +338,7 @@ html {
   margin: 0 auto;
   padding: 0 15px;
   max-width: calc(1112px + 30px);
+  overflow-x: hidden;
 }
 
 @media (min-width: 1921px) {
@@ -357,7 +359,8 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  overflow: hidden;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .header {
@@ -769,6 +772,10 @@ html {
   font-weight: 700;
   font-size: calc(12px + 3 * ((100vw - 280px) / (1920 - 280)));
   line-height: 1.2;
+}
+
+.phone__number a {
+  color: #282828;
 }
 
 .header__burger {
@@ -2022,6 +2029,10 @@ form {
           transform: translate(-50%, -50%);
 }
 
+.button-card__bottom a {
+  color: #fff;
+}
+
 @media (max-width: 1112px) {
   .more80 {
     padding-bottom: calc(30px + 10 * ((100vw - 280px) / (1920 - 280)));
@@ -2645,6 +2656,10 @@ form {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: calc(6px + 2 * ((100vw - 280px) / (1920 - 280)));
+  color: #282828;
+}
+
+.smoke .contacts__tel a {
   color: #282828;
 }
 
@@ -3312,6 +3327,10 @@ form {
 
 .type-construction {
   margin-bottom: calc(25px + 75 * ((100vw - 280px) / (1920 - 280)));
+}
+
+.type-construction__container {
+  overflow: hidden;
 }
 
 .type-construction__title {
@@ -4125,6 +4144,10 @@ form {
   margin-bottom: calc(10px + 14 * ((100vw - 280px) / (1920 - 280)));
 }
 
+.item-address__number a {
+  color: #282828;
+}
+
 @media (max-width: 768px) {
   .item-address__number {
     text-align: center;
@@ -4356,8 +4379,8 @@ form {
   z-index: 100;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+  -webkit-transition: 0.6s 0.2s;
+  transition: 0.6s 0.2s;
 }
 
 .big-popup._active {
@@ -4375,8 +4398,8 @@ form {
   left: 0;
   width: 100%;
   height: 100vh;
-  -webkit-transition: 0.8s;
-  transition: 0.8s;
+  -webkit-transition: 0.8s 0.2s;
+  transition: 0.8s 0.2s;
   -webkit-transform: perspective(600px) translateY(-100vh) rotateX(90deg);
           transform: perspective(600px) translateY(-100vh) rotateX(90deg);
   opacity: 0;
@@ -4423,6 +4446,17 @@ form {
   height: calc(25px + 15 * ((100vw - 280px) / (1920 - 280)));
   top: calc(10px + 5 * ((100vw - 280px) / (1920 - 280)));
   right: calc(10px + 5 * ((100vw - 280px) / (1920 - 280)));
+  -webkit-transition: 0.4s 0s;
+  transition: 0.4s 0s;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.popup._active .popup__close {
+  -webkit-transition: 0.4s 0.8s;
+  transition: 0.4s 0.8s;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
 .popup__close::before, .popup__close::after {

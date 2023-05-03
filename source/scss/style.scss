@@ -62,6 +62,8 @@ body {
     height          : 100%; /////
     background-color: #333;
     min-width       : 280px;
+    overflow-x: hidden;
+
     font-family     : "TT Norms", "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -368,6 +370,8 @@ html {
     margin   : 0 auto;
     padding  : 0 15px;
     max-width: calc(#{$maxWidthContent * 1px} + 30px);
+    overflow-x: hidden;
+
 }
 
 @media (min-width:2500px) {}
@@ -384,7 +388,8 @@ html {
     display         : flex;
     flex-direction  : column;
     justify-content : space-between;
-    overflow: hidden;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 .header {
@@ -394,6 +399,7 @@ html {
     left    : 0;
     padding : 20px 0;
     z-index : 10;
+
 }
 
 .button {
@@ -774,6 +780,9 @@ html {
     @include adapt-value('font-size', 15, 12, 0);
     line-height: calc(18/15);
 
+}
+.phone__number a{
+    color: #282828;
 }
 
 .header__burger {
@@ -2246,7 +2255,9 @@ form {
     left     : 50%;
     transform: translate(-50%, -50%);
 }
-
+.button-card__bottom a{
+    color: #fff;
+}
 //////////////////////////////////////////////////////////////////////////block3
 
 .more80 {}
@@ -2982,7 +2993,9 @@ form {
 
     color: #282828;
 }
-
+.smoke .contacts__tel a{
+   color: #282828; 
+}
 .contacts__socials {}
 
 .socials {}
@@ -3808,7 +3821,9 @@ margin-bottom: 0;
 
 }
 
-.type-construction__container {}
+.type-construction__container {
+    overflow: hidden;
+}
 
 .container {}
 
@@ -4729,6 +4744,10 @@ text-align: center;
     @include adapt-value("margin-bottom",24,10,0);
  
 }
+.item-address__number a{
+    color: #282828; 
+ 
+}
 @media (max-width:768px) {
     .item-address__number {
 text-align: center;
@@ -4981,7 +5000,7 @@ left: 0;
     z-index: 100;
     visibility: hidden;
     opacity: 0;
-    transition: 0.6s;
+    transition: 0.6s 0.2s;
 
 }
 .big-popup._active{
@@ -5000,7 +5019,7 @@ overflow-y: auto;
     left: 0;
     width: 100%;
 height: 100vh;
-transition: 0.8s;
+transition: 0.8s 0.2s;
 transform: perspective(600px) translateY(-100vh) rotateX(90deg);
 opacity: 0;
 }
@@ -5052,8 +5071,17 @@ color: #282828;
 @include adapt-value('height', 40, 25, 0);
 @include adapt-value('top', 15, 10, 0);
 @include adapt-value('right', 15, 10, 0);
+transition: 0.4s 0.0s;
+transform: rotate(45deg);
+
   
 }
+.popup._active .popup__close{
+    transition: 0.4s 0.8s;
+
+    transform: rotate(0deg);
+}
+
 .popup__close::before,.popup__close::after{
     content: '';
 position: absolute;

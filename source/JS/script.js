@@ -228,6 +228,13 @@ const mySwiperQuestion = new Swiper(`.question__swiper`, {
             counterSlide();
         },
     },
+    effect:`fade`,
+    /* дополнение к effect:`fade` == подходит для 1 слайда на странице*/
+     fadeEffect:{
+        crossFade:true,//true-вкл/false-выкл паралельной смены прозрачности
+    }, 
+    speed:600,
+
 });
 mySwiperQuestion.init();
 
@@ -527,7 +534,9 @@ $(`.tel-3`).on(`blur`,function(){
 
 
 const popupLinks = document.querySelectorAll(`.popup-link`);
-
+const wrapper = document.querySelector(`.wrapper`);
+const scrollWidth = window.innerWidth - wrapper.offsetWidth;
+console.log(scrollWidth);
 if(popupLinks.length){
     for (let i = 0; i < popupLinks.length; i++) {
         const popupLink = popupLinks[i];
@@ -554,7 +563,8 @@ if(popupLinks.length){
 };
 
 function openPopup(el){
-
+document.querySelector(`body`).style = `padding-right:${scrollWidth}px`;
+paddingRightadd();
    const allPopup = document.querySelectorAll(`.popup`);
 for (let i = 0; i < allPopup.length; i++) {
     const popup = allPopup[i];
@@ -568,7 +578,8 @@ for (let i = 0; i < allPopup.length; i++) {
     element.classList.add(`_active`);
 }
 function closePopup(el){
-
+    document.querySelector(`body`).style = `padding-right:${0}px`;
+    paddingRightremove();
     const element =  document.getElementById(el);
     const elementParent =  element.parentElement;
 
@@ -578,9 +589,32 @@ function closePopup(el){
 }
 
     
+function paddingRightadd(){
+    const paddingRight = document.querySelectorAll(`._padding-right`);
 
+    if(paddingRight.length){
+    for (let i = 0; i < paddingRight.length; i++) {
+        const elementPaddingRight = paddingRight[i];
 
+        elementPaddingRight.style = `padding-right:${scrollWidth}px`;
 
+        
+    }
+    }
+}
+function paddingRightremove(){
+    const paddingRight = document.querySelectorAll(`._padding-right`);
+
+    if(paddingRight.length){
+    for (let i = 0; i < paddingRight.length; i++) {
+        const elementPaddingRight = paddingRight[i];
+
+        elementPaddingRight.style = `padding-right:${0}px`;
+
+        
+    }
+    }
+}
 
 
 
